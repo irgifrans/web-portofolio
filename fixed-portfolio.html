@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irgi Franshilyo Sutrisno - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* Animated text effect */
+        .animated-text {
+            background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff0000);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 5s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.957), rgba(40, 31, 60, 0.7));
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            position: relative;
+        }
+
+        /* Floating animation */
+        .float-element {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        .portfolio-item {
+            margin-bottom: 30px;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .portfolio-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .social-icons a {
+            color: #f8f8f8;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-icons a:hover {
+            color: #ffffff;
+            transform: translateY(-5px);
+        }
+
+        .skill-bar{
+            height: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: #00d9ff;
+        }
+
+        .skill-bar .progress-bar {
+            background-color: #000000;
+            border-radius: 5px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Glow effect */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.283);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px rgba(255,255,255,0.5); }
+            to { text-shadow: 0 0 15px rgba(255,255,255,0.8); }
+        }
+
+        /* Card styles */
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            color: #ffffff;
+        }
+
+        /* Fixed navigation transparency */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9) !important;
+        }
+
+        /* Button hover effect */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            background-color: #007bff;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.919);
+        }
+
+        /* Form styling */
+        .form-control {
+            background-color: rgb(255, 255, 255);
+            border: 1px solid rgba(15, 79, 242, 0.985);
+            color: #08050501;
+        }
+
+        .form-control:focus {
+            background-color: rgba(17, 6, 6, 0.095);
+            border-color: #007bff;
+            color: #ffffff;
+            box-shadow: 0 0 0 0.2rem rgba(242, 239, 239, 0.958);
+        }
+
+        /* Image container */
+        .profile-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .profile-image-container img {
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image-container:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand animated-text" href="#">Irgi Franshilyo S.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portofolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 mb-4 glow-text float-element">Irgi Franshilyo Sutrisno</h1>
+            <p class="lead animated-text">Web Developer & UI/UX Designer</p>
+            <p class="mb-4">Usia 21 Tahun | Berbasis di Jakarta | no.telp : 082141036886 | email : irgifrans@gmail.com|</p>
+            <a href="#portfolio" class="btn btn-primary btn-lg mt-3">Lihat Portofolio</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 about-section">
+        <div class="container">
+            <h2 class="text-center mb-5 glow-text">Tentang Saya</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="profile-image-container">
+                        <img src="Subjek.png" alt="Irgi Franshilyo Sutrisno" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="animated-text">Halo! Saya Irgi</h3>
+                    <p class="lead">Fresh Graduate dengan passion di bidang Web Development dan UI/UX Design.</p>
+                    <p>Saya adalah seorang web developer muda yang antusias dengan pengalaman dalam membuat website modern dan aplikasi web yang responsif. Dengan latar belakang pendidikan di bidang Teknik Informatika, saya memiliki kemampuan untuk mengembangkan solusi digital yang inovatif dan user-friendly.</p>
+                    <div class="mt-4">
+                        <h4>Keahlian Teknis:</h4>
+                        <p class="mb-2">HTML5/CSS3</p>
+                        <div class="skill-bar">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" data-width="90%"></div>
+                        </div>
+                        <p class="mb-2">JavaScript</p>
+                        <div class="skill-bar">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" data-width="85%"></div>
+                        </div>
+                        <p class="mb-2">PHP</p>
+                        <div class="skill-bar">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" data-width="80%"></div>
+                        </div>
+                        <p class="mb-2">UI/UX Design</p>
+                        <div class="skill-bar">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" data-width="75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 glow-text">Portofolio</h2>
+            <div class="row">
+                <div class="col-md-4 portfolio-item">
+                    <div class="card">
+                        <img src="img.1.jpeg" class="card-img-top" alt="E-Commerce Website">
+                        <div class="card-body">
+                            <h5 class="card-title">E-Commerce Website</h5>
+                            <p class="card-text">Website toko online responsif dengan sistem pembayaran terintegrasi.</p>
+                            <a href="https://www.zara.com/id/en/">e-commerce website</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 portfolio-item">
+                    <div class="card">
+                        <img src="img2.jpg.avif" class="card-img-top" alt="Company Profile">
+                        <div class="card-body">
+                            <h5 class="card-title">Company Profile</h5>
+                            <p class="card-text">dan animasWebsite profil perusahaan dengan desain modern i smooth.</p>
+                            <a href="https://www.jagoweb.com/website-perusahaan">company profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 portfolio-item">
+                    <div class="card">
+                        <img src="img3.jpg" class="card-img-top" alt="Personal Blog">
+                        <div class="card-body">
+                            <h5 class="card-title">Personal Blog</h5>
+                            <p class="card-text">Platform blog personal dengan CMS custom dan fitur responsive.</p>
+                            <a href="https://www.gucci.com/us/en/?srsltid=AfmBOoosmd3Fm5I-qDXOoE3CTveb2tQnw9JDWjKHUiifGdcBQ7dHZj6e">personal blog</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 glow-text">Hubungi Saya</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Nama" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Pesan" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="social-icons text-center mt-5">
+                <a href="https://www.instagram.com/irgi_frans/?igsh=MWp2azB5aGFuczN3dg%3D%3D"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/irgi_frans/?igsh=MWp2azB5aGFuczN3dg%3D%3D"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/irgi_frans/?igsh=MWp2azB5aGFuczN3dg%3D%3D"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/irgi_frans/?igsh=MWp2azB5aGFuczN3dg%3D%3D"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-3">
+        <p class="mb-0 animated-text">&copy; 2025 Irgi Franshilyo Sutrisno. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animate skill bars on scroll
+        const animateSkillBars = () => {
+            const skillBars = document.querySelectorAll('.progress-bar');
+            skillBars.forEach(bar => {
+                const targetWidth = bar.getAttribute('data-width');
+                if (isElementInViewport(bar) && bar.style.width === '0%') {
+                    bar.style.width = targetWidth;
+                }
+            });
+        };
+
+        // Check if element is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Animate portfolio items on scroll
+        const animatePortfolioItems = () => {
+            const items = document.querySelectorAll('.portfolio-item');
+            items.forEach(item => {
+                if (isElementInViewport(item)) {
+                    item.classList.add('visible');
+                }
+            });
+        };
+
+        // Add scroll event listener
+        window.addEventListener('scroll', () => {
+            animateSkillBars();
+            animatePortfolioItems();
+        });
+
+        // Initial animation check
+        document.addEventListener('DOMContentLoaded', () => {
+            animateSkillBars();
+            animatePortfolioItems();
+        });
+
+        // Form handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah terkirim.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
